@@ -1,0 +1,50 @@
+{
+  "brends": [
+    {
+      "id": "1",
+      "name": "Chevrolet"
+    },
+    {
+      "id": "2",
+      "name": "Hyundai"
+    },
+    {
+      "id": "3",
+      "name": "Changan"
+    },
+    {
+      "id": "4",
+      "name": "JAC"
+    },
+    {
+      "id": "5",
+      "name": "Jetour"
+    },
+    {
+      "id": "6",
+      "name": "Shineray"
+    },
+    {
+      "id": "7",
+      "name": "Honda"
+    },
+    {
+      "id": "8",
+      "name": "Dongfeng"
+    },
+    {
+      "id": "9",
+      "name": "KIA"
+    },
+    {
+      "id": "10",
+      "name": "Cherry"
+    },
+    {
+      "id": "11",
+      "name": "Lada"
+    }
+  ],
+  "products": [],
+  "korzinka": []
+}
