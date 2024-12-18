@@ -1,10 +1,8 @@
 // index.js
 import TelegramBot from "node-telegram-bot-api";
 import fs from "fs";
-import dotenv from 'dotenv'
-dotenv.config()
 
-const token = process.env.BOT_TOKEN ;
+const token = "7335741883:AAF6DupO7HyWWjuIrRGn_FIgEG1V8kWkWdc" ;
 const bot = new TelegramBot(token, {
   polling: {
     interval: 300,
@@ -29,28 +27,26 @@ const mainMenu = {
     resize_keyboard: true,
   },
 };
+const restart = {
+  reply_markup: {
+    keyboard: [
+      ["/start"]
+    ],
+    resize_keyboard: true,
+  },
+};
 
 // Admin login qilish
 bot.onText(/\/start/, (msg) => {
   bot.sendMessage(
     msg.chat.id,
-    "Iltimos, login va parolni kiriting (Format: username:password):"
+    "Salom",
+    mainMenu
   );
 });
 
 bot.on("message", (msg) => {
-  if (msg.text.includes(":")) {
-    const [username, password] = msg.text.split(":");
-    if (username === process.env.ADMIN_USERNAME && password === process.env.ADMIN_PASSWORD) {
-      return bot.sendMessage(msg.chat.id, "Xush kelibsiz, admin!", mainMenu);
-    } else {
-      return bot.sendMessage(msg.chat.id, "Login yoki parol noto'g'ri!");
-    }
-  }
-
-
-  if (msg.chat.id == process.env.ADMIN_CHATID) {
-    
+  if (msg.chat.id == 1184089793) {
       switch (msg.text) {
         case "Qo'shilgan setlar":
           return showBrands(msg.chat.id);
@@ -211,7 +207,8 @@ function askForDetails(chatId, set, step = 0) {
       saveDataToFile();
       bot.sendMessage(
         chatId,
-        `Set muvaffaqiyatli qo\'shildi:\nID: ${set.id}, Nom: ${set.car}\nKolleksiya: ${set.collection}`
+        `Set muvaffaqiyatli qo\'shildi:\nID: ${set.id}, Nom: ${set.car}\nKolleksiya: ${set.collection}`,
+        restart
       );
     }
   });
